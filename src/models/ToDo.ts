@@ -1,6 +1,12 @@
 import { Schema, model, Document, Types } from "mongoose";
 
-const ToDoSchema = new Schema({
+export interface IToDo extends Document {
+  task: string,
+  user: Types.ObjectId | Record<string, unknown>,
+  complete: boolean
+}
+
+const ToDoSchema: Schema = new Schema({
   task: {
     type: String,
     required: true,
@@ -16,11 +22,5 @@ const ToDoSchema = new Schema({
     default: false
   }
 });
-
-export interface IToDo extends Document {
-    task: string,
-    user: Types.ObjectId | Record<string, unknown>,
-    complete: boolean
-}
 
 export default model<IToDo>("ToDo", ToDoSchema)

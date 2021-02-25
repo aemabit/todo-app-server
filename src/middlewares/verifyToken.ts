@@ -23,7 +23,7 @@ export const TokenValidation = (
 
     next();
   } catch (error) {
-    res.status(500).json({
+    res.status(401).json({
       error: error.message,
     });
   }

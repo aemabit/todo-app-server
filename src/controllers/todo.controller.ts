@@ -8,7 +8,7 @@ export const todoList = async (req: Request, res: Response) => {
     const todoByUser = await ToDo.find({ user: payload });
     res.status(200).json(todoByUser);
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }
@@ -27,7 +27,7 @@ export const createTodo = async (req: Request, res: Response) => {
 
     res.status(200).json(newTodo);
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }
@@ -44,7 +44,7 @@ export const updateTodo = async (req: Request, res: Response) => {
 
     res.status(200).json(updateTodo);
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }
@@ -60,7 +60,7 @@ export const deleteTodo = async (req: Request, res: Response) => {
     const successMessage = "Task has been removed";
     res.status(200).json(successMessage);
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }

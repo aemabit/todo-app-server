@@ -28,7 +28,7 @@ export const signup = async (req: Request, res: Response) => {
 
     res.status(200).json({ token, newUser });
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }
@@ -65,7 +65,7 @@ export const user = async (req: Request, res: Response) => {
     if (!user) throw new Error("No User Found");
     res.status(200).json({ user });
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       error: error.message,
     });
   }
