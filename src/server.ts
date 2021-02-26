@@ -13,7 +13,7 @@ app.set("port", process.env.PORT || 4000);
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "https://aemabit-todo-app.herokuapp.com/", credentials: true }));
 
 // ROUTES
 app.use("/api/auth", userRoutes)
